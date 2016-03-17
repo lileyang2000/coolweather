@@ -19,7 +19,7 @@ public class HttpUtil {
             public void run() {
                 HttpURLConnection connection = null;
                 try {
-                    Log.e("lileyang", "sendHttpRequest");
+
                     URL url = new URL(address);
                     connection = (HttpURLConnection) url.openConnection();
                     connection.setRequestMethod("GET");

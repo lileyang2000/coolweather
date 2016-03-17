@@ -4,6 +4,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
 
 import com.coolweather.app.model.City;
 import com.coolweather.app.model.County;
@@ -53,11 +54,13 @@ public class CoolWeatherDB {
         if(cursor.moveToFirst()){
             do{
                 Province province = new Province();
+
                 province.setId(cursor.getInt(cursor.getColumnIndex("id")));
+
                 province.setProvinceName(cursor.getString(cursor.getColumnIndex("province_name")));
                 province.setProvinceCode(cursor.getString(cursor.getColumnIndex("province_code")));
                 list.add(province);
-            }while(cursor.moveToLast());
+            }while(cursor.moveToNext());
         }
 
         if(cursor !=null){
